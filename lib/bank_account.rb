@@ -4,7 +4,7 @@ class BankAccount
     @balance = 1000
     @status = "open"
   end
-  attr_reader :name, :status
+  attr_reader :name, :status, :balance
   def deposit(value_being_deposited)
     @balance += value_being_deposited
   end
@@ -12,7 +12,7 @@ class BankAccount
     @balance
   end
   def valid?
-    if self.status == "open" && display_balance > 0
+    if self.status == "open" && self.balance > 0
       true
     else
       false
