@@ -9,7 +9,7 @@ class BankAccount
     @balance += value_being_deposited
   end
   def display_balance
-    @balance
+    puts "Your balance is #{@balance}."
   end
   def valid?
     if self.status == "open" && self.balance > 0
