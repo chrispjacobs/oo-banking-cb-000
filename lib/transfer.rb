@@ -5,7 +5,7 @@ class Transfer
     @transfer_amount = transfer_amount
     @status = "pending"
   end
-  attr_accessor :status
+  attr_reader :status, :sender, :receiver, :transfer_amount
   def valid?
     if @sender.valid? == true && @receiver.valid? == true
       true
