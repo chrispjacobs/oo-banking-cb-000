@@ -4,7 +4,8 @@ class BankAccount
     @balance = 1000
     @status = "open"
   end
-  attr_reader :name, :status, :balance
+  attr_reader :name
+  attr_accessor :status, :balance
   def deposit(value_being_deposited)
     @balance += value_being_deposited
   end
