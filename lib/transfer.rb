@@ -4,7 +4,6 @@ class Transfer
     @receiver = receiver
     @transfer_amount = transfer_amount
     @status = "pending"
-    @completed = false
   end
   def valid?
     if @sender.valid? == true && @receiver.valid? == true
@@ -14,14 +13,14 @@ class Transfer
     end
   end
   def execute_transaction
-    if @completed == false && self.valid? == true
+    if @status == "pending" && self.valid? == true
       @sender.deposit(-@transfer_amount)
       @receiver.deposit(@transfer_amount)
-      @completed = true
+      @status = "complete"
     end
   end
   def reverse_transfer
-    if @completed == true
+    if @status == "complete"
       @sender.deposit(@transfer_amount)
       @receiver.deposit(@transfer_amount)
     end
