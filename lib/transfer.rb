@@ -20,4 +20,10 @@ class Transfer
       @completed = true
     end
   end
+  def reverse_transfer
+    if @completed == true
+      @sender.deposit(@transfer_amount)
+      @receiver.deposit(@transfer_amount)
+    end
+  end
 end
